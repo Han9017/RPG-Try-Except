@@ -159,7 +159,7 @@ def MainMenu():
   orientating = playing
   while orientating:
     while True:
-      #try
+      #try statement
       try:
         print("Choose to move to another area or look around:")
         Choose = ["walk", "look", "quit"]
