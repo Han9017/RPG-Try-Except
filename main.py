@@ -169,7 +169,7 @@ def MainMenu():
           print((f"{i} - ({do.title()})"))
         userInput = int(input("You choice: "))
         orientating = False
-        
+
       except ValueError:
         print("this is not a number")
         continue
@@ -178,7 +178,7 @@ def MainMenu():
         if userInput == 1:
           print("You went to the area ahead")
           walkto()
-          
+
         elif userInput == 2:
           print("You look around.")
           #Function call
@@ -188,21 +188,27 @@ def MainMenu():
         #if the user chooses to quit, the game quit
         elif userInput == 3:
           playing = False
-          
+
         else:
           print("Invalid input!")
           orientating = True
         break
-        
+
       finally:
         print("player still alive")
-        
+
 
 # Main ----------------------------------------------------------------------
 # Open in read mode
-file = open("story.txt", "r")
-print(file.read())
-file.close()
+try:
+  file = open("story.txt", "r")
+except FileNotFoundError:
+  print("Can't read file")
+else:
+  print(file.read())
+  file.close()
+finally:
+  print("Reads end")
 
 place = [
   "Start", "A swampy land", "A charred jungle", "Bloody Lake",
